@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //  kotlin stdlib
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+    //    Toothpick
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpickVersion"
+    // test
+    testImplementation "junit:junit:$junit"
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
