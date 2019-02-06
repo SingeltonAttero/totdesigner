@@ -27,13 +27,9 @@ class App : Application() {
     }
 
     private fun initToothpick() {
-        if (BuildConfig.DEBUG) {
-            Toothpick.setConfiguration(Configuration.forDevelopment().preventMultipleRootScopes())
-        } else {
-            Toothpick.setConfiguration(Configuration.forProduction().disableReflection())
-            FactoryRegistryLocator.setRootRegistry(com.balticitc.myportfolio.totdesigner.FactoryRegistry())
-            MemberInjectorRegistryLocator.setRootRegistry(com.balticitc.myportfolio.totdesigner.MemberInjectorRegistry())
-        }
+        Toothpick.setConfiguration(Configuration.forDevelopment().disableReflection())
+        FactoryRegistryLocator.setRootRegistry(FactoryRegistry())
+        MemberInjectorRegistryLocator.setRootRegistry(MemberInjectorRegistry())
     }
 
     private fun initLogger() {

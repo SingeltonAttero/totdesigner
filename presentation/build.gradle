@@ -12,12 +12,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [toothpick_registry_package_name: 'com.balticitc.myportfolio.totdesigner',
-                             toothpick_registry_children_package_names:'com.balticitc.myportfolio.data']
-            }
-        }
     }
     buildTypes {
         release {
@@ -81,6 +75,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'org.mockito:mockito-core:2.18.3'
 }
-
-
+kapt {
+    generateStubs = true
+    arguments {
+        arg("toothpick_registry_package_name", "com.balticitc.myportfolio.totdesigner")
+        arg("toothpick_registry_children_package_names", "com.balticitc.myportfolio.data,com.balticitc.myportfolio.domain")
+    }
+}
 
