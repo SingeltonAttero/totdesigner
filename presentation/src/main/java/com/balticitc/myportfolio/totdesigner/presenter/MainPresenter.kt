@@ -13,10 +13,4 @@ import javax.inject.Inject
  * project totdesigner */
 @InjectViewState
 class MainPresenter @Inject constructor(private val resourceManager: ResourceManager,
-                                        private val prefs: PrefsProvider) : BasePresenter<MainView>() {
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-        val date = Date()
-
-    }
-}
+                                        private val prefs: PrefsProvider) : BasePresenter<MainView>()

@@ -2,6 +2,7 @@ package com.balticitc.myportfolio.totdesigner.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -21,28 +22,19 @@ import javax.inject.Inject
  * @author YWeber
  * project totdesigner */
 
-class MainActivity : AppCompatActivity(){
-  /*  @InjectPresenter
+class MainActivity : MvpAppCompatActivity(),MainView{
+
+    @InjectPresenter
     lateinit var presenter: MainPresenter
 
     @ProvidePresenter
     fun providerPresenter(): MainPresenter = Toothpick
         .openScope(DI.APP_SCOPE)
-        .getInstance(MainPresenter::class.java)*/
-    @Inject
-    lateinit var resource:ResourceManager
-
-    @Inject
-    lateinit var main:Main
+        .getInstance(MainPresenter::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val openScope = Toothpick.openScope(DI.APP_SCOPE)
-        Toothpick.inject(this,openScope)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toast(resource.getString(R.string.app_name))
-        main.test
     }
-
 
 }

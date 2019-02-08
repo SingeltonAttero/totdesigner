@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ТОТСОЗДАТЕЛЬ</string>
+    <string name="download">загрузить</string>
+    <string name="about_app">О программе</string>
 </resources>
