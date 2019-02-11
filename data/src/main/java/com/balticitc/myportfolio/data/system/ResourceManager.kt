@@ -1,7 +1,7 @@
 package com.balticitc.myportfolio.data.system
 
 import android.content.Context
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import java.io.InputStream
 import javax.inject.Inject
 

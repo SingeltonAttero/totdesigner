@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +7,12 @@
     tools:context=".ui.MainActivity">
 
     <fragment
-        android:id="@+id/startFragmentActivity"
+        android:id="@+id/nav_host_fragment"
         android:name="com.balticitc.myportfolio.totdesigner.ui.start.StartFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/main_navigation_graph"
+        app:navGraph="@navigation/main_graph"
         />
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

@@ -4,6 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.balticitc.myportfolio.data.storage.PrefsProvider
 import com.balticitc.myportfolio.data.system.ResourceManager
 import com.balticitc.myportfolio.totdesigner.presenter.base.BasePresenter
+import timber.log.Timber
 import java.util.*
 import javax.inject.Inject
 
@@ -13,4 +14,8 @@ import javax.inject.Inject
  * project totdesigner */
 @InjectViewState
 class MainPresenter @Inject constructor(private val resourceManager: ResourceManager,
-                                        private val prefs: PrefsProvider) : BasePresenter<MainView>()
+                                        private val prefs: PrefsProvider) : BasePresenter<MainView>(){
+    init {
+        Timber.d("init ${this::class.java}")
+    }
+}
