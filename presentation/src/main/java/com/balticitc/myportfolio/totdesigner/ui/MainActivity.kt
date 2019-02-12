@@ -1,6 +1,7 @@
 package com.balticitc.myportfolio.totdesigner.ui
 
 import android.os.Bundle
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -30,7 +31,6 @@ class MainActivity : MvpAppCompatActivity(),MainView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Navigation.findNavController(this,R.id.nav_host_fragment)
     }
 
 }

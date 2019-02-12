@@ -2,19 +2,31 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_graf"
-    app:startDestination="@id/startFragment">
+    android:id="@+id/main_graph"
+    app:startDestination="@id/startFragmentDest">
 
     <fragment
-        android:id="@+id/startFragment"
+        android:id="@+id/startFragmentDest"
         android:name="com.balticitc.myportfolio.totdesigner.ui.start.StartFragment"
-        android:label="StartFragment" />
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_start">
+
+        <action
+            android:id="@+id/actionToAboutFragmentDest"
+            app:destination="@+id/aboutFragmentDest"/>
+        <action
+            android:id="@+id/actionToMainScreenFragmentDest"
+            app:destination="@id/mainScreenFragmentDest" />
+
+    </fragment>
     <fragment
-        android:id="@+id/aboutFragment"
+        android:id="@+id/aboutFragmentDest"
         android:name="com.balticitc.myportfolio.totdesigner.ui.about.AboutFragment"
-        android:label="AboutFragment" />
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about" />
     <fragment
-        android:id="@+id/mainScreenFragment"
+        android:id="@+id/mainScreenFragmentDest"
         android:name="com.balticitc.myportfolio.totdesigner.ui.main.MainScreenFragment"
-        android:label="MainScreenFragment" />
+        android:label="MainScreenFragment"
+        tools:layout="@layout/fragment_main_screen" />
 </navigation>
