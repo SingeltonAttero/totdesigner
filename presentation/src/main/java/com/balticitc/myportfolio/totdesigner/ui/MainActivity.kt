@@ -11,6 +11,7 @@ import com.balticitc.myportfolio.totdesigner.presenter.MainView
 import com.balticitc.myportfolio.totdesigner.androidx.MvpAppCompatActivity
 import com.balticitc.myportfolio.totdesigner.toothpick.DI
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
 
 /**
@@ -31,6 +32,8 @@ class MainActivity : MvpAppCompatActivity(),MainView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        toolbar.title = getString(R.string.about_app)
     }
 
 }
