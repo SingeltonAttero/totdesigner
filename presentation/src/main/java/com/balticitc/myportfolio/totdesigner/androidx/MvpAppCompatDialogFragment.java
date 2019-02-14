@@ -1,7 +1,9 @@
 package com.balticitc.myportfolio.totdesigner.androidx;
 
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import com.arellomobile.mvp.MvpDelegate;
 

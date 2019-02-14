@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/startFragmentDest"
-        android:name="com.balticitc.myportfolio.totdesigner.ui.start.StartFragment"
+        android:name="com.balticitc.myportfolio.totdesigner.ui.lessons.UserLessonsFragment"
         android:label="StartFragment"
-        tools:layout="@layout/fragment_start">
+        tools:layout="@layout/fragment_user_lessons">
 
         <action
             android:id="@+id/actionToAboutFragmentDest"
