@@ -8,4 +8,5 @@ package com.balticitc.myportfolio.totdesigner.toothpick
 object DI {
     const val APP_SCOPE = "app module"
     const val NAVIGATION_SCOPE = "navigation module"
+    const val LESSON_SCOPE = "lesson module"
 }
