@@ -1,6 +1,11 @@
 package com.balticitc.myportfolio.totdesigner.ui.lessons
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -21,6 +26,7 @@ import toothpick.Toothpick
  * @author YWeber
  * project totdesigner */
 
+private const val REQUEST_CODE = 32
 class UserLessonsFragment : BaseFragment(), UserLessonsView {
 
     @InjectPresenter
@@ -35,15 +41,43 @@ class UserLessonsFragment : BaseFragment(), UserLessonsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                REQUEST_CODE -> {
+                    val path = data?.data?.path
+                    toast(path.toString())
+                }
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         initLessonScope()
         super.onCreate(savedInstanceState)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+            R.id.addNewLessonMenu -> {
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.type = "*/*"
+                intent.addCategory(Intent.CATEGORY_OPENABLE)
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.open_lesson)), REQUEST_CODE)
+                true
+            }
+            else -> { super.onOptionsItemSelected(item) }
+        }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_lessons,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
     override fun bindLessonToAdapter(lessons: List<CommonLesson>) {
-        lessonsRecycler.adapter = LessonsAdapter(ArrayList(lessons))
+        lessonsRecycler.adapter = LessonsAdapter(lessons.toMutableList())
         lessonsRecycler.layoutManager = GridLayoutManager(activity,3)
     }
 

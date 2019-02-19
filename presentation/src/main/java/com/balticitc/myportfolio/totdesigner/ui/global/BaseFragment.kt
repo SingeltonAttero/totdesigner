@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.widget.Toolbar
 import com.balticitc.myportfolio.data.system.disposable.ComponentDisposables
 import com.balticitc.myportfolio.data.system.disposable.ComponentDisposablesProvider
 import com.balticitc.myportfolio.totdesigner.androidx.MvpAppCompatFragment
+import com.balticitc.myportfolio.totdesigner.ui.MainActivity
 
 /**
  * Created on 13.02.19
@@ -18,6 +21,8 @@ abstract class BaseFragment : MvpAppCompatFragment() , ComponentDisposablesProvi
     companion object {
         const val DIALOG_TAG = "dialog fragment"
     }
+    val toolbar: ActionBar?
+        get() = (activity as MainActivity).supportActionBar
 
     abstract val layoutRes: Int @LayoutRes get
 

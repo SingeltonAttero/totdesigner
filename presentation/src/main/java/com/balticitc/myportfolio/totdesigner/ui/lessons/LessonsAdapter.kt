@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_lesson.view.*
  * @author YWeber
  * project totdesigner */
 
-class LessonsAdapter(override var dataSet: ArrayList<CommonLesson>) : BaseRecyclerAdapter<CommonLesson, LessonsAdapter.LessonsHolder>() {
+class LessonsAdapter(override var dataSet: MutableList<CommonLesson>) : BaseRecyclerAdapter<CommonLesson, LessonsAdapter.LessonsHolder>() {
 
     override fun createViewHolder(view: View, viewType: Int): LessonsHolder = LessonsHolder(view)
 
