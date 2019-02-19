@@ -5,6 +5,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.balticitc.myportfolio.totdesigner.R
 import com.balticitc.myportfolio.totdesigner.androidx.MvpAppCompatActivity
+import com.balticitc.myportfolio.totdesigner.extension.verifyStoragePermissions
 import com.balticitc.myportfolio.totdesigner.presenter.MainPresenter
 import com.balticitc.myportfolio.totdesigner.presenter.MainView
 import com.balticitc.myportfolio.totdesigner.toothpick.DI
@@ -33,6 +34,7 @@ class MainActivity : MvpAppCompatActivity(),MainView{
         openNavigationModule()
         setSupportActionBar(toolbar)
         toolbar.title = getString(R.string.about_app)
+        verifyStoragePermissions()
     }
 
     private fun openNavigationModule() {

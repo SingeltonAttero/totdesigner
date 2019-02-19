@@ -8,7 +8,7 @@ import com.balticitc.myportfolio.totdesigner.extension.inflate
 
 abstract class BaseRecyclerAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
 
-    abstract var dataSet: ArrayList<T>
+    abstract var dataSet: MutableList<T>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val view = parent.inflate(viewType)
