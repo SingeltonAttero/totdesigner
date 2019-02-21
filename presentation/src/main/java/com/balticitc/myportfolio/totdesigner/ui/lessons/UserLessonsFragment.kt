@@ -3,6 +3,7 @@ package com.balticitc.myportfolio.totdesigner.ui.lessons
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -18,7 +19,6 @@ import com.balticitc.myportfolio.totdesigner.toothpick.DI
 import com.balticitc.myportfolio.totdesigner.toothpick.module.LessonModule
 import com.balticitc.myportfolio.totdesigner.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.fragment_user_lessons.*
-import org.jetbrains.anko.support.v4.toast
 import toothpick.Toothpick
 
 /**
@@ -49,12 +49,14 @@ class UserLessonsFragment : BaseFragment(), UserLessonsView {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 REQUEST_CODE -> {
-                    val path = data?.data?.path
-                    toast(path.toString())
+                    val path = data?.data?.path?.split(":".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray()?.get(1) ?: ""
+                    presenter.openZipFile(path, activity!!.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)?.absolutePath ?: ""
+                    )
                 }
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initLessonScope()
         super.onCreate(savedInstanceState)

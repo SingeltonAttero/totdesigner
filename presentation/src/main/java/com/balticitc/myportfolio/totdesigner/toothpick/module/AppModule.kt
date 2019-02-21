@@ -4,9 +4,11 @@ import android.content.Context
 import com.balticitc.myportfolio.data.storage.AppPrefs
 import com.balticitc.myportfolio.data.storage.PrefsProvider
 import com.balticitc.myportfolio.data.system.ResourceManager
+import com.balticitc.myportfolio.data.system.file.zip.ZipManager
+import com.balticitc.myportfolio.data.system.file.zip.ZipManagerProvider
+import com.balticitc.myportfolio.data.system.message.SystemMessageNotifier
 import com.balticitc.myportfolio.data.system.schedulers.AppSchedulers
 import com.balticitc.myportfolio.data.system.schedulers.SchedulersProvider
-import com.balticitc.myportfolio.domain.Main
 import timber.log.Timber
 import toothpick.config.Module
 
@@ -22,6 +24,8 @@ class AppModule (context: Context) : Module() {
         bind(ResourceManager::class.java).toInstance(ResourceManager(context))
         bind(SchedulersProvider::class.java).toInstance(AppSchedulers())
         bind(PrefsProvider::class.java).to(AppPrefs::class.java).singletonInScope()
-        bind(Main::class.java).to(Main::class.java)
+        bind(SystemMessageNotifier::class.java).toInstance(SystemMessageNotifier())
+        Timber.e("init zip file manager")
+        bind(ZipManagerProvider::class.java).toInstance(ZipManager())
     }
 }
