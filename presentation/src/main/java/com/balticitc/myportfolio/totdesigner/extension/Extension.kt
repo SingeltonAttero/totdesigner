@@ -13,8 +13,7 @@ import timber.log.Timber
 
 /**
  * Created on 15.02.19
- * @author YWeber
- * project totdesigner */
+ * @author YWeber */
 private const val REQUEST_EXTERNAL_STORAGE = 1
 private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
@@ -32,7 +31,7 @@ fun Activity.verifyStoragePermissions(){
 fun ViewGroup.inflate(@LayoutRes layoutId: Int, attachToRoot: Boolean = false): View =
     LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 
-fun <T> T.alsoPrintDebug(message: String = "Error"): T =
+fun <T> T.printDebug(message: String = "Error"): T =
     this.also { Timber.e("$message...$this") }
 
 inline fun <reified T> T.printConstruction() =

@@ -7,8 +7,7 @@ import javax.inject.Inject
 
 /**
  * Created on 05.02.19
- * @author YWeber
- * project totdesigner */
+ * @author YWeber */
 
 class ResourceManager @Inject constructor(private val context: Context) {
 

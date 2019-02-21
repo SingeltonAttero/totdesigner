@@ -1,6 +1,7 @@
 package com.balticitc.myportfolio.domain.repository.lessons
 
 import com.balticitc.myportfolio.domain.entity.lessons.CommonLesson
+import io.reactivex.Completable
 import io.reactivex.Single
 
 /**
@@ -10,4 +11,5 @@ import io.reactivex.Single
 
 interface UserLessonRepository {
     fun getAllLessons(): Single<List<CommonLesson>>
+    fun openZipFile(zipPath:String,locationTarget:String):Completable
 }

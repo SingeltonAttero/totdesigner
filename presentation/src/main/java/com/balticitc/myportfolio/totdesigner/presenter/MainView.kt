@@ -7,4 +7,6 @@ import com.arellomobile.mvp.MvpView
  * @author YWeber
  * project totdesigner */
 
-interface MainView : MvpView
+interface MainView : MvpView{
+    fun showErrorToast(message:String)
+}

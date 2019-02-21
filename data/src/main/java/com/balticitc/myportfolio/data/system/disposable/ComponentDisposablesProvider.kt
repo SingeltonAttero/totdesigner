@@ -5,8 +5,7 @@ import io.reactivex.disposables.Disposable
 
 /**
  * Created on 05.02.19
- * @author YWeber
- * project totdesigner */
+ * @author YWeber */
 
 interface ComponentDisposablesProvider {
     val compositeDisposable: CompositeDisposable

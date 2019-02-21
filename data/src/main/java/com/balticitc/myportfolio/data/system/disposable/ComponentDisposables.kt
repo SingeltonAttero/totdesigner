@@ -5,10 +5,10 @@ import io.reactivex.disposables.Disposable
 
 /**
  * Created on 05.02.19
- * @author YWeber
- * project totdesigner */
+ * @author YWeber */
 
-class ComponentDisposables : ComponentDisposablesProvider {
+class ComponentDisposables :
+    ComponentDisposablesProvider {
 
     override val compositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
     override fun clear() {

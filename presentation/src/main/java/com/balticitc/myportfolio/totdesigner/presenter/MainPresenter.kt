@@ -1,11 +1,9 @@
 package com.balticitc.myportfolio.totdesigner.presenter
 
 import com.arellomobile.mvp.InjectViewState
-import com.balticitc.myportfolio.data.storage.PrefsProvider
-import com.balticitc.myportfolio.data.system.ResourceManager
 import com.balticitc.myportfolio.totdesigner.presenter.base.BasePresenter
+import com.balticitc.myportfolio.data.system.message.SystemMessageNotifier
 import timber.log.Timber
-import java.util.*
 import javax.inject.Inject
 
 /**
@@ -13,9 +11,16 @@ import javax.inject.Inject
  * @author YWeber
  * project totdesigner */
 @InjectViewState
-class MainPresenter @Inject constructor(private val resourceManager: ResourceManager,
-                                        private val prefs: PrefsProvider) : BasePresenter<MainView>(){
+class MainPresenter @Inject constructor(private val systemMessageNotifier: SystemMessageNotifier) : BasePresenter<MainView>(){
     init {
         Timber.d("init ${this::class.java}")
+    }
+
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        systemMessageNotifier.notifier()
+                .subscribe {
+                    viewState.showErrorToast(it.message)
+                }.bind()
     }
 }

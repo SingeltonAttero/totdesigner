@@ -11,6 +11,7 @@ import com.balticitc.myportfolio.totdesigner.presenter.MainView
 import com.balticitc.myportfolio.totdesigner.toothpick.DI
 import com.balticitc.myportfolio.totdesigner.toothpick.module.NavModule
 import kotlinx.android.synthetic.main.toolbar.*
+import org.jetbrains.anko.toast
 import toothpick.Toothpick
 
 /**
@@ -41,5 +42,7 @@ class MainActivity : MvpAppCompatActivity(),MainView{
         val openScope = Toothpick.openScopes(DI.APP_SCOPE, DI.NAVIGATION_SCOPE)
         openScope.installModules(NavModule(this))
     }
-
+    override fun showErrorToast(message: String) {
+        toast(message)
+    }
 }
