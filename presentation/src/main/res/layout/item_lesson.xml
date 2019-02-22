@@ -11,18 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:animateLayoutChanges="true"
-        app:cardBackgroundColor="@color/colorAccent"
+        app:cardBackgroundColor="@color/colorPrimary"
         android:elevation="4dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="12dp">
         <ImageView
-            android:id="@+id/lessonPictureView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/ic_folder_place_holder"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/image_stub" />
+                android:id="@+id/lessonPictureView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_folder_place_holder"
+                tools:scaleType="center"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/image_stub" />
 
     </androidx.cardview.widget.CardView>
 
