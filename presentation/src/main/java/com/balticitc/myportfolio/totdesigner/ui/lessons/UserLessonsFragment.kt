@@ -2,6 +2,7 @@ package com.balticitc.myportfolio.totdesigner.ui.lessons
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
@@ -19,7 +20,10 @@ import com.balticitc.myportfolio.totdesigner.toothpick.DI
 import com.balticitc.myportfolio.totdesigner.toothpick.module.LessonModule
 import com.balticitc.myportfolio.totdesigner.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.fragment_user_lessons.*
+import org.jetbrains.anko.support.v4.find
+import org.jetbrains.anko.support.v4.toast
 import toothpick.Toothpick
+import java.io.File
 
 /**
  * Created on 08.02.19
@@ -63,7 +67,7 @@ class UserLessonsFragment : BaseFragment(), UserLessonsView {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
-            R.id.addNewLessonMenu -> {
+            R.id.menuAddNewLesson -> {
                 val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.type = "*/*"
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
